@@ -11,11 +11,11 @@
 }
 
 .information#top {
-    border-radius: 0% 25% 0% 0%;
+    border-radius: 25% 25% 0% 0%;
 }
 
 .information#bottom {
-    border-radius: 0% 0% 25% 0%;
+    border-radius: 0% 0% 25% 25%;
 }
 
 #main_block, footer {
@@ -37,4 +37,10 @@ a {
 
 h2, h1 {
     text-align: center;
+}
+
+.icon_link {
+    width: 64;
+    height: 64px;
+    border-radius: 10%;
 }
