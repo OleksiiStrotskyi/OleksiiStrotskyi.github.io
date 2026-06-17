@@ -44,3 +44,16 @@ h2, h1 {
     height: 64px;
     border-radius: 10%;
 }
+
+div#last_block {
+    background-color: black;
+}
+
+p#white {
+    color: white;
+}
+
+body {
+    zoom: 200%;
+}
+
