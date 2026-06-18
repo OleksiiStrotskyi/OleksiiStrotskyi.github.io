@@ -1,0 +1,111 @@
+/* 1. БАЗОВІ НАЛАШТУВАННЯ ТА ТИПОГРАФІКА */
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Додав сучасніші шрифти на перше місце */
+    box-sizing: border-box; /* Золоте правило CSS: щоб padding не розширював блоки */
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: #0d1110; /* Дуже темний, майже чорний колір з легким зеленим відтінком */
+}
+
+/* 2. ГОЛОВНИЙ КОНТЕЙНЕР */
+body {
+    margin: 0 auto;
+    width: 900px;
+    background-color: #16201b; /* Темно-сіро-зелений фон для самої статті */
+    border-left: 1px solid #2ea169; /* Замість повної рамки робимо стильну неонову лінію зліва */
+    border-right: 1px solid #2ea169;
+    color: #e0e0e0; /* Не чисто білий, а світло-сірий текст - так легше читати на темному */
+    line-height: 1.6; /* ВАЖЛИВО: додаємо міжрядковий інтервал, щоб текст "дихав" */
+}
+
+/* 3. НАВІГАЦІЯ (HEADER) */
+nav {
+    position: fixed;
+    max-width: 900px;
+    width: 100%;
+    top: 0;
+    z-index: 10; /* Щоб меню завжди було поверх усього іншого тексту */
+    border-bottom: 2px solid #2ea169; /* Підкреслюємо меню */
+}
+
+nav > ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #0a0f0c; /* Дуже темний фон для меню */
+}
+
+nav > ul li {
+    float: left;
+}
+
+nav > ul li a {
+    display: block;
+    color: #2ea169; /* Неоново-зелені посилання */
+    text-align: center;
+    padding: 16px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s; /* Плавна зміна кольору при наведенні */
+}
+
+nav > ul li a:hover {
+    background-color: #2ea169;
+    color: #0a0f0c; /* Інверсія кольорів при наведенні */
+}
+
+/* 4. ОСНОВНИЙ КОНТЕНТ */
+main {
+    margin-top: 60px;
+    padding: 20px 40px; /* Додаємо простору всередині блоку, щоб текст не лип до країв */
+}
+
+h1, h2 {
+    scroll-margin-top: 80px;
+    color: #4ade80; /* Світло-зелені заголовки, щоб виділялися */
+    border-bottom: 1px dashed #2ea169; /* Тонка пунктирна лінія під заголовками для стилю */
+    padding-bottom: 5px;
+}
+
+p, section > ul li, section > ol li {
+    margin-bottom: 15px; /* Відступи між абзацами */
+}
+
+strong, b {
+    color: #ffffff; /* Робимо жирний текст яскравішим */
+}
+
+/* 5. ЗОБРАЖЕННЯ ТА ФОН */
+img {
+    width: 360px;
+    height: auto; /* Щоб пропорції картинки не спотворювались */
+    float: left;
+    margin-right: 20px; /* Відштовхуємо текст від картинки */
+    margin-bottom: 10px;
+    border: 1px solid #2ea169;
+    border-radius: 8px; /* Трохи закруглюємо кути картинки */
+}
+
+.dna-background {
+    background-image: url('sources/dna_helix.png');
+    background-repeat: repeat-y; 
+    background-size: 100% auto; 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 300px; 
+    height: 100vh; 
+    z-index: -1; 
+}
+
+/* 6. ПІДВАЛ (FOOTER) */
+footer {
+    background-color: #0a0f0c;
+    color: #2ea169;
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid #2ea169;
+}
