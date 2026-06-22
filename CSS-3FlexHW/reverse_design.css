@@ -20,6 +20,7 @@ header {
     padding: 0 40px; 
     border-bottom: 1px solid #e5e7eb; 
     background-color: white;
+    flex-wrap: wrap;
 }
 
 header div:first-child strong {
@@ -37,6 +38,7 @@ header nav ul {
     list-style: none; 
     gap: 32px;       
     align-items: center;
+    flex-wrap: wrap;
 }
 
 header nav ul li a {
