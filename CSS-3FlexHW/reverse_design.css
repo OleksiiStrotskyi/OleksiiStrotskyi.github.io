@@ -14,16 +14,16 @@ body {
 
 header {
     display: flex;
-    height: 8vh; 
+    height: 7vh; 
     justify-content: space-between;
     align-items: center; 
-    padding: 0 32px; 
+    padding: 0 40px; 
     border-bottom: 1px solid #e5e7eb; 
     background-color: white;
 }
 
 header div:first-child strong {
-    font-size: 20px; 
+    font-size: 24px; 
     font-weight: 700;
     color: #111827;
 }
@@ -35,14 +35,14 @@ header div:first-child span {
 header nav ul {
     display: flex;
     list-style: none; 
-    gap: 28px;       
+    gap: 32px;       
     align-items: center;
 }
 
 header nav ul li a {
     text-decoration: none; 
     color: #4b5563;        
-    font-size: 14px; 
+    font-size: 16px; 
     font-weight: 500;
     transition: color 0.2s ease; 
 }
@@ -53,14 +53,13 @@ header nav ul li a:hover {
 
 header div:last-child {
     display: flex;
-    gap: 12px;
-    align-items: center;
+    gap: 16px;
 }
 
 header div:last-child button:first-child {
     background: transparent;
     border: none;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     color: #4b5563;
     cursor: pointer;
@@ -75,9 +74,9 @@ header div:last-child button:last-child {
     background-color: #111827;
     color: white;
     border: none;
-    padding: 8px 16px; 
+    padding: 10px 20px; 
     border-radius: 6px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     transition: 0.2s;
@@ -87,9 +86,10 @@ header div:last-child button:last-child:hover {
     background-color: #1f2937;
 }
 
+
 main section:first-child {
     display: flex;
-    height: 36vh; 
+    height: 35vh; 
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -100,31 +100,31 @@ main section:first-child {
 }
 
 main section:first-child h1 {
-    font-size: 32px; 
+    font-size: 42px; 
     font-weight: 700;
-    margin-bottom: 12px;
-    letter-spacing: -0.5px; 
+    margin-bottom: 16px;
+    letter-spacing: -1px; 
 }
 
 main section:first-child p {
     color: #9ca3af; 
-    font-size: 15px; 
-    line-height: 1.5;
-    margin-bottom: 24px;
-    max-width: 600px; 
+    font-size: 18px; 
+    line-height: 1.6;
+    margin-bottom: 32px;
+    max-width: 690px; 
 }
 
 main section:first-child div {
     display: flex;
-    gap: 12px;
+    gap: 16px;
 }
 
 main section:first-child div a {
     text-decoration: none;
-    padding: 10px 20px; 
+    padding: 12px 24px; 
     border-radius: 6px;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 16px;
     transition: 0.2s;
 }
 
@@ -149,7 +149,7 @@ main section:first-child div a:last-child:hover {
 
 main section:first-child + section {
     display: flex;
-    height: 48vh; 
+    height: 52vh; 
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -158,29 +158,29 @@ main section:first-child + section {
 }
 
 main section:first-child + section > h2 {
-    font-size: 26px; 
+    font-size: 32px; 
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
 main section:first-child + section > p {
     color: #6b7280;
-    font-size: 15px;
-    margin-bottom: 28px;
+    font-size: 16px;
+    margin-bottom: 36px;
 }
 
 main section:last-child > section {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    gap: 20px; 
+    gap: 24px; 
     align-items: stretch; 
 }
 
 main section:last-child > section div {
     background-color: white;
-    width: 294px; 
-    padding: 24px; 
+    width: 36.8vh; 
+    padding: 32px; 
     border-radius: 8px;
     border: 1px solid #e5e7eb;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); 
@@ -189,30 +189,24 @@ main section:last-child > section div {
     align-items: flex-start;
 }
 
-main section:last-child > section div img {
-    width: 24px; 
-    height: 24px;
-    margin-bottom: 12px;
-}
-
 main section:last-child > section div h2 {
-    font-size: 16px; 
+    font-size: 20px; 
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
 main section:last-child > section div p:first-of-type {
     color: #6b7280;
-    font-size: 13px; 
-    line-height: 1.5;
-    margin-bottom: 16px;
+    font-size: 15px; 
+    line-height: 1.6;
+    margin-bottom: 24px;
     flex-grow: 1; 
 }
 
 main section:last-child > section div p:last-of-type a {
     text-decoration: none;
     font-weight: 600;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 main section:last-child > section div:nth-child(1) { border-top: 4px solid #ef4444; }
@@ -230,13 +224,13 @@ main section:last-child > section div:nth-child(3) p a { color: #10b981; }
 footer {
     display: flex;
     justify-content: space-between;
-    height: 8vh; 
+    height: 6vh; 
     align-items: center;
-    padding: 0 32px;
+    padding: 0 40px;
     border-top: 1px solid #e5e7eb;
     color: #9ca3af;
     background-color: white;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 footer div {
@@ -245,8 +239,8 @@ footer div {
 }
 
 footer div img {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     opacity: 0.6;
     transition: opacity 0.2s;
     cursor: pointer;
