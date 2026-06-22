@@ -238,16 +238,16 @@ footer div {
     gap: 16px;
 }
 
-footer div img {
+footer div svg {
     width: 20px;
     height: 20px;
-    opacity: 0.6;
-    transition: opacity 0.2s;
+    color: #9ca3af; 
+    transition: color 0.2s;
     cursor: pointer;
 }
 
-footer div img:hover {
-    opacity: 1;
+footer div svg:hover {
+    color: #111827; 
 }
 
 
