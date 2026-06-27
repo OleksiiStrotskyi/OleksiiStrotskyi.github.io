@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | Oleksii Strotskyi</title>
+    <link rel="icon" type="image/x-icon" href="sources/sign.ico">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deepBlue: '#030715',
+                        panelBlue: '#0a1128',
+                        neonBlue: '#00f3ff',
+                        neonPurple: '#8a2be2',
+                        neonHot: '#ff4d00',
+                        neonPink: '#ff00aa',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'glow-pulse': 'glow-pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        'glow-pulse': {
+                            '0%, 100%': { opacity: 0.5 },
+                            '50%': { opacity: 1 },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #030715; }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #030715; }
+        ::-webkit-scrollbar-thumb { 
+            background: linear-gradient(to bottom, #00f3ff, #8a2be2, #ff00aa); 
+            border-radius: 10px; 
+        }
+
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+
+        .glass-panel {
+            background: rgba(10, 17, 40, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 243, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .glass-badge {
+            background: rgba(0, 243, 255, 0.05);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+        }
+
+        details[open] summary ~ * {
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="text-slate-300 font-sans antialiased leading-relaxed min-h-screen flex flex-col lg:flex-row relative selection:bg-neonBlue selection:text-deepBlue overflow-x-hidden">
+
+    <div class="fixed top-[-10%] left-[-10%] w-[500px] h-[500px] bg-neonBlue/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
+    <div class="fixed bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-neonPurple/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
+
+    <header class="lg:hidden fixed top-0 left-0 w-full z-50 glass-panel border-b border-neonBlue/20 px-6 py-4 flex justify-between items-center shadow-[0_0_20px_rgba(0,243,255,0.15)]">
+        <div class="font-extrabold text-2xl tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-neonBlue via-neonPurple to-neonHot drop-shadow-[0_0_10px_rgba(0,243,255,0.5)]">
+            OS.
+        </div>
+        <button id="mobile-menu-btn" class="text-neonBlue hover:text-white hover:drop-shadow-[0_0_8px_#00f3ff] transition-all duration-300">
+            <svg id="menu-icon" class="w-8 h-8 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </header>
+
+    <nav id="mobile-nav" class="fixed inset-0 z-40 bg-deepBlue/95 backdrop-blur-2xl transform translate-x-full transition-transform duration-500 ease-in-out flex items-center justify-center lg:hidden">
+        <ul class="flex flex-col gap-8 text-center text-2xl font-bold tracking-wide w-full px-8">
+            <li><a href="#hobby" class="mobile-link block w-full py-2 border-b border-white/5 text-slate-300 hover:text-neonBlue hover:border-neonBlue transition-all">Hobbies</a></li>
+            <li><a href="#frontend" class="mobile-link block w-full py-2 border-b border-white/5 text-slate-300 hover:text-neonBlue hover:border-neonBlue transition-all">Front-End</a></li>
+            <li><a href="#backend" class="mobile-link block w-full py-2 border-b border-white/5 text-slate-300 hover:text-neonHot hover:border-neonHot transition-all">Back-End</a></li>
+            <li><a href="#db" class="mobile-link block w-full py-2 border-b border-white/5 text-slate-300 hover:text-neonHot hover:border-neonHot transition-all">Database</a></li>
+            <li><a href="#devops" class="mobile-link block w-full py-2 border-b border-white/5 text-slate-300 hover:text-neonPink hover:border-neonPink transition-all">DevOps</a></li>
+            <li><a href="#ds" class="mobile-link block w-full py-2 border-b border-white/5 text-slate-300 hover:text-neonPink hover:border-neonPink transition-all">Data Science</a></li>
+            <li><a href="#education" class="mobile-link block w-full py-2 border-b border-white/5 text-slate-300 hover:text-white hover:border-white transition-all">Education</a></li>
+            <li><a href="#languages" class="mobile-link block w-full py-2 text-slate-300 hover:text-white transition-all">Languages</a></li>
+        </ul>
+    </nav>
+
+    <aside class="w-full mt-20 lg:mt-0 lg:w-[380px] lg:fixed lg:left-0 lg:top-0 lg:h-screen lg:overflow-y-auto no-scrollbar glass-panel border-r border-neonBlue/10 p-8 flex flex-col gap-10 z-30 relative">
+        
+        <section class="flex flex-col items-center text-center mt-4 lg:mt-8">
+            <div class="relative w-48 h-48 mb-6 group">
+                <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-neonBlue via-neonPurple to-neonHot blur-md opacity-70 group-hover:opacity-100 group-hover:blur-lg transition duration-500 animate-glow-pulse"></div>
+                <img src="sources/headshot.jpg" alt="My photo" class="relative w-full h-full object-cover rounded-full border-4 border-deepBlue z-10">
+            </div>
+            
+            <h1 class="text-3xl lg:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-neonBlue to-white pb-2 drop-shadow-[0_0_8px_rgba(0,243,255,0.3)]">
+                Oleksii Strotskyi
+            </h1>
+            <p class="text-neonBlue font-semibold tracking-widest uppercase text-sm mt-1">Aspiring Python Backend Developer</p>
+            
+            <div class="mt-6 flex flex-col gap-2 w-full">
+                <div class="glass-badge px-4 py-2 rounded-full text-sm text-slate-200 flex justify-center items-center gap-2">
+                    <span>📍</span> Lviv, Ukraine
+                </div>
+                <div class="glass-badge px-4 py-2 rounded-full text-sm text-slate-200 flex justify-center items-center gap-2">
+                    <span>🇬🇧</span> English: B1 (Intermediate)
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-4">
+            <h2 class="text-lg font-bold text-white uppercase tracking-widest flex items-center gap-3">
+                <span class="w-2 h-2 rounded-full bg-neonHot shadow-[0_0_12px_#ff4d00]"></span> About Me
+            </h2>
+            <div class="h-px w-full bg-gradient-to-r from-neonHot/80 via-neonHot/20 to-transparent"></div>
+            <p class="text-sm leading-relaxed text-slate-400">
+                I am an Artificial Intelligence student at Lviv Polytechnic National University, 
+                currently expanding my practical skill set through Frontend and Database courses at SoftServe Academy. 
+                My core focus spans across <span class="text-white font-medium drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]">Backend, Frontend, Databases, and ML/AI</span> technologies.
+            </p>
+        </section>
+
+        <section class="space-y-4 pb-8 lg:pb-8">
+            <h2 class="text-lg font-bold text-white uppercase tracking-widest flex items-center gap-3">
+                <span class="w-2 h-2 rounded-full bg-neonPink shadow-[0_0_12px_#ff00aa]"></span> My Goal
+            </h2>
+            <div class="h-px w-full bg-gradient-to-r from-neonPink/80 via-neonPink/20 to-transparent"></div>
+            <p class="text-sm leading-relaxed text-slate-400">
+                I am highly motivated to build a strong career as a <em class="text-neonBlue not-italic font-semibold drop-shadow-[0_0_5px_rgba(0,243,255,0.4)]">Python Backend Developer</em>. 
+                My long-term ambition is to evolve into a <em class="text-neonHot not-italic font-semibold drop-shadow-[0_0_5px_rgba(255,77,0,0.4)]">Full-Stack expert and mentor</em>, 
+                helping others grow in the IT industry.
+            </p>
+        </section>
+    </aside>
+
+    <main class="w-full lg:w-[calc(100%-380px)] lg:ml-[380px] p-4 sm:p-8 lg:p-12 min-h-screen flex flex-col gap-10 relative z-10">
+        
+        <nav class="hidden lg:flex justify-center flex-wrap gap-x-6 gap-y-3 sticky top-6 z-40 glass-panel px-8 py-4 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.5)] border-neonBlue/20">
+            <a href="#hobby" class="text-sm font-semibold text-slate-400 hover:text-neonBlue hover:drop-shadow-[0_0_8px_#00f3ff] transition-all">Hobbies</a>
+            <a href="#frontend" class="text-sm font-semibold text-slate-400 hover:text-neonBlue hover:drop-shadow-[0_0_8px_#00f3ff] transition-all">Front-End</a>
+            <a href="#backend" class="text-sm font-semibold text-slate-400 hover:text-neonHot hover:drop-shadow-[0_0_8px_#ff4d00] transition-all">Back-End</a>
+            <a href="#db" class="text-sm font-semibold text-slate-400 hover:text-neonHot hover:drop-shadow-[0_0_8px_#ff4d00] transition-all">Database</a>
+            <a href="#devops" class="text-sm font-semibold text-slate-400 hover:text-neonPink hover:drop-shadow-[0_0_8px_#ff00aa] transition-all">DevOps</a>
+            <a href="#ds" class="text-sm font-semibold text-slate-400 hover:text-neonPink hover:drop-shadow-[0_0_8px_#ff00aa] transition-all">Data Science</a>
+            <a href="#education" class="text-sm font-semibold text-slate-400 hover:text-white hover:drop-shadow-[0_0_8px_#ffffff] transition-all">Education</a>
+            <a href="#languages" class="text-sm font-semibold text-slate-400 hover:text-white hover:drop-shadow-[0_0_8px_#ffffff] transition-all">Languages</a>
+        </nav>
+
+        <div class="space-y-6 mt-4 lg:mt-0">
+
+            <details id="hobby" class="group glass-panel scroll-mt-32 rounded-2xl overflow-hidden border border-white/5 hover:border-neonBlue/50 hover:shadow-[0_0_25px_rgba(0,243,255,0.15)] transition-all duration-300">
+                <summary class="flex justify-between items-center p-6 lg:p-8 cursor-pointer select-none bg-white/0 hover:bg-white/[0.02] transition-colors">
+                    <h2 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-neonBlue tracking-wide">Interests & Hobbies</h2>
+                    <div class="w-10 h-10 rounded-full glass-badge flex items-center justify-center group-hover:border-neonBlue/50 transition-colors">
+                        <svg class="w-6 h-6 text-neonBlue transition-transform duration-500 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
+                </summary>
+                <div class="px-6 pb-6 lg:px-8 lg:pb-8 border-t border-white/5">
+                    <ul class="space-y-4 mt-6">
+                        <li class="flex items-start gap-4 p-3 rounded-lg hover:bg-white/5 transition-colors">
+                            <span class="text-2xl drop-shadow-[0_0_10px_rgba(0,243,255,0.5)]">💻</span> 
+                            <span class="text-slate-300 leading-relaxed">Continuous Coding, Data Science Exploration & Leadership</span>
+                        </li>
+                        <li class="flex items-start gap-4 p-3 rounded-lg hover:bg-white/5 transition-colors">
+                            <span class="text-2xl drop-shadow-[0_0_10px_rgba(0,243,255,0.5)]">🧬</span> 
+                            <span class="text-slate-300 leading-relaxed">Neurobiology, Genetic Engineering</span>
+                        </li>
+                        <li class="flex items-start gap-4 p-3 rounded-lg hover:bg-white/5 transition-colors">
+                            <span class="text-2xl drop-shadow-[0_0_10px_rgba(0,243,255,0.5)]">🏄‍♂️</span> 
+                            <span class="text-slate-300 leading-relaxed">Sport Swimming, Riding a Unicycle & Snorkeling</span>
+                        </li>
+                    </ul>
+                </div>
+            </details>
+
+            <details id="frontend" class="group glass-panel scroll-mt-32 rounded-2xl overflow-hidden border border-white/5 hover:border-neonBlue/50 hover:shadow-[0_0_25px_rgba(0,243,255,0.15)] transition-all duration-300">
+                <summary class="flex justify-between items-center p-6 lg:p-8 cursor-pointer select-none bg-white/0 hover:bg-white/[0.02] transition-colors">
+                    <h2 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-neonBlue to-white tracking-wide">Front-End</h2>
+                    <div class="w-10 h-10 rounded-full glass-badge flex items-center justify-center group-hover:border-neonBlue/50 transition-colors">
+                        <svg class="w-6 h-6 text-neonBlue transition-transform duration-500 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
+                </summary>
+                <div class="px-6 pb-6 lg:px-8 lg:pb-8 border-t border-white/5">
+                    <ul class="space-y-5 mt-6 text-slate-300">
+                        <li class="flex flex-col md:flex-row gap-1 md:gap-4 items-start">
+                            <b class="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] md:w-[240px] lg:w-[220px] xl:w-[260px] shrink-0">Web Fundamentals:</b> 
+                            <span class="leading-relaxed">Understanding of core web mechanics and client-server architecture.</span>
+                        </li>
+                        <li class="flex flex-col md:flex-row gap-1 md:gap-4 items-start">
+                            <b class="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] md:w-[240px] lg:w-[220px] xl:w-[260px] shrink-0">HTML5:</b> 
+                            <span class="leading-relaxed">Solid understanding of document structure and web markup.</span>
+                        </li>
+                        <li class="flex flex-col md:flex-row gap-1 md:gap-4 items-start">
+                            <b class="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] md:w-[240px] lg:w-[220px] xl:w-[260px] shrink-0">CSS3 & Styling:</b> 
+                            <span class="leading-relaxed">Confident work with the Box Model (margins, paddings, borders), stacking contexts (z-index) and so on.</span>
+                        </li>
+                        <li class="flex flex-col md:flex-row gap-1 md:gap-4 items-start">
+                            <b class="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] md:w-[240px] lg:w-[220px] xl:w-[260px] shrink-0">Layouts & Positioning:</b> 
+                            <span class="leading-relaxed">Mastery of Normal Flow and all positioning mechanics (relative, absolute, fixed, sticky).</span>
+                        </li>
+                        <li class="flex flex-col md:flex-row gap-1 md:gap-4 items-start">
+                            <b class="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] md:w-[240px] lg:w-[220px] xl:w-[260px] shrink-0">Flexbox:</b> 
+                            <span class="leading-relaxed">Strong practical skills in using Flexible Box Layout to build logical and adaptable web interfaces.</span>
+                        </li>
+                        <li class="flex flex-col md:flex-row gap-1 md:gap-4 items-start">
+                            <b class="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.6)] md:w-[240px] lg:w-[220px] xl:w-[260px] shrink-0">Version Control:</b> 
+                            <span class="leading-relaxed">Git, GitHub and AI.</span>
+                        </li>
+                    </ul>
+                </div>
+            </details>
+
+            <details id="backend" class="group glass-panel scroll-mt-32 rounded-2xl overflow-hidden border border-white/5 hover:border-neonHot/50 hover:shadow-[0_0_25px_rgba(255,77,0,0.15)] transition-all duration-300">
+                <summary class="flex justify-between items-center p-6 lg:p-8 cursor-pointer select-none bg-white/0 hover:bg-white/[0.02] transition-colors">
+                    <h2 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-neonHot to-white tracking-wide">Back-End</h2>
+                    <div class="w-10 h-10 rounded-full glass-badge flex items-center justify-center group-hover:border-neonHot/50 transition-colors">
+                        <svg class="w-6 h-6 text-neonHot transition-transform duration-500 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
+                </summary>
+                <div class="px-6 pb-6 lg:px-8 lg:pb-8 border-t border-white/5">
+                    <ul class="space-y-5 mt-6 text-slate-300">
+                        <li class="flex flex-col md:flex-row gap-1 md:gap-4 items-start">
+                            <b class="text-neonHot drop-shadow-[0_0_8px_rgba(255,77,0,0.6)] md:w-[240px] lg:w-[220px] xl:w-[260px] shrink-0">Core Python:</b> 
+                            <span class="leading-relaxed">Advanced knowledge of Python 3, including Decorators, Generators, Context Managers, List/Dict Comprehensions etc.</span>
+                        </li>
+                        <li class="flex flex-col md:flex-row gap-1 md:gap-4 items-start">
+                            <b class="text-neonHot drop-shadow-[0_0_8px_rgba(255,77,0,0.6)] md:w-[240px] lg:w-[220px] xl:w-[260px] shrink-0">OOP & Architecture:</b> 
+                            <span class="leading-relaxed">Strong grasp of Object-Oriented Programming and custom Exception Handling.</span>
+                        </li>
+                        <li class="flex flex-col md:flex-row gap-1 md:gap-4 items-start">
+                            <b class="text-neonHot drop-shadow-[0_0_8px_rgba(255,77,0,0.6)] md:w-[240px] lg:w-[220px] xl:w-[260px] shrink-0">Algo & Data Structures:</b> 
+                            <span class="leading-relaxed">Solid understanding of core collections, searching/sorting algorithms and graph traversal.</span>
+                        </li>
+                        <li class="flex flex-col md:flex-row gap-1 md:gap-4 items-start">
+                            <b class="text-neonHot drop-shadow-[0_0_8px_rgba(255,77,0,0.6)] md:w-[240px] lg:w-[220px] xl:w-[260px] shrink-0">Data Processing:</b> 
+                            <span class="leading-relaxed">File I/O operations and JSON serialization/deserialization.</span>
+                        </li>
+                        <li class="flex flex-col md:flex-row gap-1 md:gap-4 items-start">
+                            <b class="text-neonHot drop-shadow-[0_0_8px_rgba(255,77,0,0.6)] md:w-[240px] lg:w-[220px] xl:w-[260px] shrink-0">Frameworks:</b> 
+                            <span class="leading-relaxed">(In Progress) Advanced Django and FastAPI.</span>
+                        </li>
+                        <li class="flex flex-col md:flex-row gap-1 md:gap-4 items-start">
+                            <b class="text-neonHot drop-shadow-[0_0_8px_rgba(255,77,0,0.6)] md:w-[240px] lg:w-[220px] xl:w-[260px] shrink-0">Tools & DevOps:</b> 
+                            <span class="leading-relaxed">Git, GitHub, virtualization, PIP package management and AI.</span>
+                        </li>
+                    </ul> 
+                </div>
+            </details>
+
+            <details id="db" class="group glass-panel scroll-mt-32 rounded-2xl overflow-hidden border border-white/5 hover:border-neonHot/50 hover:shadow-[0_0_25px_rgba(255,77,0,0.15)] transition-all duration-300">
+                <summary class="flex justify-between items-center p-6 lg:p-8 cursor-pointer select-none bg-white/0 hover:bg-white/[0.02] transition-colors">
+                    <h2 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-neonHot tracking-wide">Databases</h2>
+                    <div class="w-10 h-10 rounded-full glass-badge flex items-center justify-center group-hover:border-neonHot/50 transition-colors">
+                        <svg class="w-6 h-6 text-neonHot transition-transform duration-500 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
+                </summary>
+                <div class="px-6 pb-6 lg:px-8 lg:pb-8 border-t border-white/5">
+                    <div class="mt-6 p-4 rounded-xl bg-neonHot/5 border border-neonHot/20 flex items-center gap-4">
+                        <span class="w-3 h-3 bg-neonHot rounded-full animate-ping absolute"></span>
+                        <span class="w-3 h-3 bg-neonHot rounded-full relative shadow-[0_0_10px_#ff4d00]"></span>
+                        <p class="italic text-slate-300">Database Skills (I've just started to learn)</p>
+                    </div>
+                </div>
+            </details>
+
+            <details id="devops" class="group glass-panel scroll-mt-32 rounded-2xl overflow-hidden border border-white/5 hover:border-neonPink/50 hover:shadow-[0_0_25px_rgba(255,0,170,0.15)] transition-all duration-300">
+                <summary class="flex justify-between items-center p-6 lg:p-8 cursor-pointer select-none bg-white/0 hover:bg-white/[0.02] transition-colors">
+                    <h2 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-neonPink to-white tracking-wide">DevOps</h2>
+                    <div class="w-10 h-10 rounded-full glass-badge flex items-center justify-center group-hover:border-neonPink/50 transition-colors">
+                        <svg class="w-6 h-6 text-neonPink transition-transform duration-500 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
+                </summary>
+                <div class="px-6 pb-6 lg:px-8 lg:pb-8 border-t border-white/5">
+                    <div class="mt-6 p-4 rounded-xl bg-neonPink/5 border border-neonPink/20 flex items-center gap-4">
+                        <span class="w-3 h-3 bg-neonPink rounded-full animate-ping absolute"></span>
+                        <span class="w-3 h-3 bg-neonPink rounded-full relative shadow-[0_0_10px_#ff00aa]"></span>
+                        <p class="italic text-slate-300">DevOps Skills (Course planned)</p>
+                    </div>
+                </div>
+            </details>
+
+            <details id="ds" class="group glass-panel scroll-mt-32 rounded-2xl overflow-hidden border border-white/5 hover:border-neonPink/50 hover:shadow-[0_0_25px_rgba(255,0,170,0.15)] transition-all duration-300">
+                <summary class="flex justify-between items-center p-6 lg:p-8 cursor-pointer select-none bg-white/0 hover:bg-white/[0.02] transition-colors">
+                    <h2 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-neonPink tracking-wide">Data Science</h2>
+                    <div class="w-10 h-10 rounded-full glass-badge flex items-center justify-center group-hover:border-neonPink/50 transition-colors">
+                        <svg class="w-6 h-6 text-neonPink transition-transform duration-500 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
+                </summary>
+                <div class="px-6 pb-6 lg:px-8 lg:pb-8 border-t border-white/5">
+                    <ul class="space-y-5 mt-6 text-slate-300">
+                        <li class="flex flex-col md:flex-row gap-1 md:gap-4 items-start">
+                            <b class="text-neonPink drop-shadow-[0_0_8px_rgba(255,0,170,0.6)] md:w-[240px] lg:w-[220px] xl:w-[260px] shrink-0">Exploratory Data Analysis:</b> 
+                            <span class="leading-relaxed">Data mining, preprocessing, and visual analysis utilizing Pandas and Orange DataMining.</span>
+                        </li>
+                        <li class="flex flex-col md:flex-row gap-1 md:gap-4 items-start">
+                            <b class="text-neonPink drop-shadow-[0_0_8px_rgba(255,0,170,0.6)] md:w-[240px] lg:w-[220px] xl:w-[260px] shrink-0">Classical ML:</b> 
+                            <span class="leading-relaxed">Implementation of predictive models, clustering, and ensemble methods. Strong grasp of evaluation metrics and the bias-variance tradeoff.</span>
+                        </li>
+                        <li class="flex flex-col md:flex-row gap-1 md:gap-4 items-start">
+                            <b class="text-neonPink drop-shadow-[0_0_8px_rgba(255,0,170,0.6)] md:w-[240px] lg:w-[220px] xl:w-[260px] shrink-0">Deep Learning & Time Series:</b> 
+                            <span class="leading-relaxed">Practical experience building Neural Networks, specifically RNN, GRU, LSTM and Seq2Seq (Encoder-Decoder) architectures for complex sequence forecasting.</span>
+                        </li>
+                        <li class="flex flex-col md:flex-row gap-1 md:gap-4 items-start">
+                            <b class="text-neonPink drop-shadow-[0_0_8px_rgba(255,0,170,0.6)] md:w-[240px] lg:w-[220px] xl:w-[260px] shrink-0">Computer Vision & AI:</b> 
+                            <span class="leading-relaxed">Developing CNNs with Keras 3+, applying embeddings, and fine-tuning pre-trained models. Solid understanding of Fuzzy Logic, Cellular Automata, Graph and Reinforcement Learning.</span>
+                        </li>
+                        <li class="flex flex-col md:flex-row gap-1 md:gap-4 items-start">
+                            <b class="text-neonPink drop-shadow-[0_0_8px_rgba(255,0,170,0.6)] md:w-[240px] lg:w-[220px] xl:w-[260px] shrink-0">In Progress:</b> 
+                            <span class="leading-relaxed">Deepening expertise in Transformer architectures.</span>
+                        </li>
+                    </ul> 
+                </div>
+            </details>
+
+            <details id="education" class="group glass-panel scroll-mt-32 rounded-2xl overflow-hidden border border-white/5 hover:border-white/50 hover:shadow-[0_0_25px_rgba(255,255,255,0.1)] transition-all duration-300">
+                <summary class="flex justify-between items-center p-6 lg:p-8 cursor-pointer select-none bg-white/0 hover:bg-white/[0.02] transition-colors">
+                    <h2 class="text-2xl font-bold text-white tracking-wide drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">Education</h2>
+                    <div class="w-10 h-10 rounded-full glass-badge flex items-center justify-center group-hover:border-white/50 transition-colors">
+                        <svg class="w-6 h-6 text-white transition-transform duration-500 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
+                </summary>
+                <div class="px-6 pb-6 lg:px-8 lg:pb-8 border-t border-white/5">
+                    <ul class="space-y-4 mt-6 text-slate-300 relative border-l-2 border-white/10 ml-3 pl-6">
+                        <li class="relative">
+                            <span class="absolute -left-[31px] top-1.5 w-3 h-3 bg-white/50 rounded-full shadow-[0_0_8px_#ffffff]"></span>
+                            Lviv Primary and Secondary School №91
+                        </li>
+                        <li class="relative">
+                            <span class="absolute -left-[31px] top-1.5 w-3 h-3 bg-white/50 rounded-full shadow-[0_0_8px_#ffffff]"></span>
+                            Lviv Physics and Mathematics Lyceum
+                        </li>
+                        <li class="relative text-neonBlue">
+                            <span class="absolute -left-[31px] top-1.5 w-3 h-3 bg-neonBlue rounded-full shadow-[0_0_10px_#00f3ff]"></span>
+                            <em>National University Lviv Polytechnic - AI degree</em>
+                        </li>
+                        <li class="relative text-neonHot">
+                            <span class="absolute -left-[31px] top-1.5 w-3 h-3 bg-neonHot rounded-full shadow-[0_0_10px_#ff4d00]"></span>
+                            <em>SoftServe Academy</em>
+                        </li>
+                    </ul>
+                </div>
+            </details>
+
+            <details id="languages" class="group glass-panel scroll-mt-32 rounded-2xl overflow-hidden border border-white/5 hover:border-white/50 hover:shadow-[0_0_25px_rgba(255,255,255,0.1)] transition-all duration-300">
+                <summary class="flex justify-between items-center p-6 lg:p-8 cursor-pointer select-none bg-white/0 hover:bg-white/[0.02] transition-colors">
+                    <h2 class="text-2xl font-bold text-white tracking-wide drop-shadow-[0_0_5px_rgba(255,255,255,0.5)]">Languages</h2>
+                    <div class="w-10 h-10 rounded-full glass-badge flex items-center justify-center group-hover:border-white/50 transition-colors">
+                        <svg class="w-6 h-6 text-white transition-transform duration-500 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
+                </summary>
+                <div class="px-6 pb-6 lg:px-8 lg:pb-8 border-t border-white/5">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6 text-slate-300">
+                        <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex items-center gap-4 hover:border-white/30 transition-colors">
+                            <span class="text-3xl">🇺🇦</span> 
+                            <div><b class="block text-white">Ukrainian</b> Native</div>
+                        </div>
+                        <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex items-center gap-4 hover:border-white/30 transition-colors">
+                            <span class="text-3xl">🇬🇧</span> 
+                            <div><b class="block text-white">English</b> B1</div>
+                        </div>
+                        <div class="p-4 rounded-xl bg-white/5 border border-white/10 flex items-center gap-4 hover:border-white/30 transition-colors">
+                            <span class="text-3xl">🇵🇱</span> 
+                            <div><b class="block text-white">Polish</b> A1</div>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+        </div>
+        
+        <footer class="mt-12 pt-10 border-t border-white/10 flex flex-col items-center gap-8 relative z-10">
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="https://github.com/OleksiiStrotskyi" target="_blank" rel="noopener noreferrer" class="group glass-badge rounded-full p-3 hover:scale-110 hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,255,255,0.6)] hover:border-white">
+                    <img src="sources/GitHub.ico" alt="GitHub" class="w-6 h-6 opacity-70 group-hover:opacity-100 filter invert transition-opacity" onerror="this.outerHTML='<span class=\'text-white font-bold\'>GH</span>'">
+                </a>
+                <a href="https://t.me/spirit_king" target="_blank" rel="noopener noreferrer" class="group glass-badge rounded-full p-3 hover:scale-110 hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,243,255,0.8)] hover:border-neonBlue">
+                    <img src="sources/telegram.ico" alt="Telegram" class="w-6 h-6 opacity-70 group-hover:opacity-100 transition-opacity" onerror="this.outerHTML='<span class=\'text-neonBlue font-bold\'>TG</span>'">
+                </a>
+                <a href="mailto:strotskyi.oleksii@gmail.com" class="group glass-badge rounded-full p-3 hover:scale-110 hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,77,0,0.8)] hover:border-neonHot">
+                    <img src="sources/gmail.ico" alt="Email" class="w-6 h-6 opacity-70 group-hover:opacity-100 transition-opacity" onerror="this.outerHTML='<span class=\'text-neonHot font-bold\'>EM</span>'">
+                </a>
+                <a href="https://discord.com/users/1483195252197294226" target="_blank" rel="noopener noreferrer" class="group glass-badge rounded-full p-3 hover:scale-110 hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_0_20px_rgba(170,0,255,0.8)] hover:border-neonPurple">
+                    <img src="sources/discord.ico" alt="Discord" class="w-6 h-6 opacity-70 group-hover:opacity-100 transition-opacity" onerror="this.outerHTML='<span class=\'text-neonPurple font-bold\'>DC</span>'">
+                </a>
+                <a href="#" class="group glass-badge rounded-full p-3 hover:scale-110 hover:-translate-y-1 transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,119,181,0.8)] hover:border-[#0077b5]">
+                    <img src="sources/LinkedIn.ico" alt="LinkedIn" class="w-6 h-6 opacity-70 group-hover:opacity-100 transition-opacity" onerror="this.outerHTML='<span class=\'text-[#0077b5] font-bold\'>IN</span>'">
+                </a>
+            </div>
+
+            <div class="text-sm text-slate-500 font-medium pb-6 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-neonBlue shadow-[0_0_8px_#00f3ff]"></span>
+                <p>© 2026 Всі права захищено</p> 
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileNav = document.getElementById('mobile-nav');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let isMenuOpen = false;
+
+        const toggleMenu = () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileNav.classList.remove('translate-x-full');
+                menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileNav.classList.add('translate-x-full');
+                menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+                document.body.style.overflow = '';
+            }
+        };
+
+        menuBtn.addEventListener('click', toggleMenu);
+        
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if(isMenuOpen) toggleMenu();
+            });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement && targetElement.tagName === 'DETAILS') {
+                    if (!targetElement.open) {
+                        targetElement.open = true;
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
