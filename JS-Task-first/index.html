@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorting | JavaScript</title>
-    <link rel="stylesheet" href="design.css">
 
     <style>
         :root {
@@ -58,7 +57,7 @@
             align-items: center;
             gap: 3rem;
             width: 100%;
-            max-width: 1200px;
+            max-width: 1600px;
         }
 
         article > div:first-child {
@@ -95,7 +94,7 @@
             background: var(--card-gradient);
             border-radius: 16px;
             padding: 2rem;
-            width: 300px;
+            width: 500px;
             
             display: flex;
             flex-direction: column;
@@ -162,31 +161,32 @@
     <article>
         <div>
             <h2>Array generator</h2>
-            <p>Your list is [<span></span>]</p>
-            <button>Generate new list</button>
+            <p>Your list is [<span id="generated-list"></span>]</p>
+            <button id="generate-list">Generate new list</button>
         </div>
 
         <div>
             <section>
                 <h2>Bubble Sort</h2>
-                <p></p>
-                <button>Get sorted</button>
+                <p id="bs-list"></p>
+                <button id="bs-bttn">Get sorted</button>
             </section>
 
             <section>
                 <h2>Selection Sort</h2>
-                <p></p>
-                <button>Get sorted</button>
+                <p id="ss-list"></p>
+                <button id="ss-bttn">Get sorted</button>
             </section>
 
             <section>
                 <h2>Insertion Sort</h2>
-                <p></p>
-                <button>Get sorted</button>
+                <p id="is-list"></p>
+                <button id="is-bttn">Get sorted</button>
             </section>
         </div>
         
     </article>
-    
+
+    <script type="module" src="./DOM.js"></script>
 </body>
 </html>
