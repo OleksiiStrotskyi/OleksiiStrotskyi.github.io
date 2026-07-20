@@ -1,4 +1,4 @@
-import { getNewRandomList, bubbleSort } from "./sort_algoritms.js";
+import { getNewRandomList, bubbleSort, selectionSort, insertionSort } from "./sort_algoritms.js";
 
 const listField = document.querySelector("#generated-list");
 const generateButton = document.querySelector("#generate-list");
